@@ -12,15 +12,10 @@ Vagrant.configure("2") do |config|
 
  # Every Vagrant development environment requires a box. You can search for
  # boxes at https://vagrantcloud.com/search.
-
-  config.vm.box = "ubuntu/bionic64"
-  config.vm.box_version = "20210315.1.0"
-
-
+ config.vm.box = "ubuntu/bionic64"
+ config.vm.box_version = "~> 20200304.0.0"
 
  config.vm.network "forwarded_port", guest: 8000, host: 8000
- # config.ssh.private_key_path = " /c/Users/balog/.ssh/id_rsa"
-config.ssh.forward_agent = true
 
  config.vm.provision "shell", inline: <<-SHELL
    systemctl disable apt-daily.service
